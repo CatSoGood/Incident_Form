@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incident Report Form</title>
+    <link rel="stylesheet" href="{% static 'formbuilder/style.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Incident Report Form</h1>
+        
+        <form method="post">
+            {% csrf_token %}
+            
+            <div class="section">
+                <h2>Contact Information and Incident</h2>
+                <div class="form-group-inline">
+                    <div>
+                        <label>{{ form.first_name.label }}</label>
+                        {{ form.first_name }}
+                    </div>
+                    <div>
+                        <label>{{ form.last_name.label }}</label>
+                        {{ form.last_name }}
+                    </div>
+                    <div>
+                        <label>{{ form.job_title.label }}</label>
+                        {{ form.job_title }}
+                    </div>
+                    <div>
+                        <label>{{ form.department.label }}</label>
+                        {{ form.department }}
+                    </div>
+                    <div>
+                        <label>{{ form.phone.label }}</label>
+                        {{ form.phone }}
+                    </div>
+                    <div>
+                        <label>{{ form.mobile.label }}</label>
+                        {{ form.mobile }}
+                    </div>
+                    <div>
+                        <label>{{ form.email.label }}</label>
+                        {{ form.email }}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Incident General Information</h2>
+                <div class="form-group-general">
+                    <div>
+                        <label>{{ form.date_of_issue.label }}</label>
+                        {{ form.date_of_issue }}
+                    </div>
+                    <div>
+                        <label>{{ form.severity.label }}</label>
+                        {{ form.severity }}
+                    </div>
+                    <div>
+                        <label>{{ form.category.label }}</label>
+                        {{ form.category }}
+                    </div>
+                    <div>
+                        <label>{{ form.sub_category.label }}</label>
+                        {{ form.sub_category }}
+                    </div>
+                    <div>
+                        <label>{{ form.device_action.label }}</label>
+                        {{ form.device_action }}
+                    </div>
+                    <div>
+                        <label>{{ form.source_address.label }}</label>
+                        {{ form.source_address }}
+                    </div>
+                    <div>
+                        <label>{{ form.destination_address.label }}</label>
+                        {{ form.destination_address }}
+                    </div>
+                    <div>
+                        <label>{{ form.destination_port.label }}</label>
+                        {{ form.destination_port }}
+                    </div>
+                    <div>
+                        <label>{{ form.application_protocol.label }}</label>
+                        {{ form.application_protocol }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Incident Information</h2>
+                <div class="form-group form-group-full">
+                    <label>{{ form.description.label }}</label>
+                    {{ form.description }}
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
