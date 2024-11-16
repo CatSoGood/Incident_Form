@@ -10,10 +10,9 @@ def create_incident_report(request):
         form = IncidentReportForm(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            # แปลงวันที่เป็น string ก่อนจัดเก็บใน session
             if 'date_of_issue' in data and isinstance(data['date_of_issue'], date):
                 data['date_of_issue'] = data['date_of_issue'].isoformat()
-            request.session['form_data'] = data  # บันทึกข้อมูลใน session
+            request.session['form_data'] = data
             return redirect('preview_incident_report')
         else:
             print("Form errors:", form.errors)
@@ -26,7 +25,6 @@ def preview_incident_report(request):
     if not data:
         return redirect('create_incident_report')
     
-    # แปลงวันที่กลับเป็น date
     if 'date_of_issue' in data:
         data['date_of_issue'] = datetime.fromisoformat(data['date_of_issue']).date()
     

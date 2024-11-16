@@ -16,7 +16,7 @@
             <th>Last Name:</th>
             <td>{{ data.last_name }}</td>
         </tr>
-        <!-- เพิ่มฟิลด์อื่น ๆ ที่ต้องการ -->
+        
     </table>
     <form method="post" action="{% url 'download_pdf' %}">
         {% csrf_token %}
