@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import IncidentReport
 
-# Register your models here.
+# ลงทะเบียนโมเดลกับหน้า Admin
+admin.site.register(IncidentReport)
