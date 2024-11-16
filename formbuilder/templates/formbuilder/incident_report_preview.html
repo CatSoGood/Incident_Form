@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Incident Report</title>
+</head>
+<body>
+    <h1>Preview Incident Report</h1>
+    <table>
+        <tr>
+            <th>First Name:</th>
+            <td>{{ data.first_name }}</td>
+        </tr>
+        <tr>
+            <th>Last Name:</th>
+            <td>{{ data.last_name }}</td>
+        </tr>
+        <!-- เพิ่มฟิลด์อื่น ๆ ที่ต้องการ -->
+    </table>
+    <form method="post" action="{% url 'download_pdf' %}">
+        {% csrf_token %}
+        <button type="submit">Download PDF</button>
+    </form>
+</body>
+</html>

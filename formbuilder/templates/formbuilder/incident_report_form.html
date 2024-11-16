@@ -11,7 +11,8 @@
     <div class="form-container">
         <h1>Incident Report Form</h1>
         
-        <form method="post">
+        <!-- Form เริ่มต้นที่นี่ -->
+        <form method="post" action="{% url 'create_incident_report' %}">
             {% csrf_token %}
             
             <div class="section">
@@ -96,10 +97,13 @@
                     <label>{{ form.description.label }}</label>
                     {{ form.description }}
                 </div>
-            </div>
+            </div>  
 
-            <button type="submit" class="submit-btn">Submit</button>
+            <!-- ปุ่ม Submit อยู่ที่นี่ -->
+            <button type="submit">Submit</button>
         </form>
+        <!-- Form สิ้นสุดที่นี่ -->
+
     </div>
 </body>
 </html>

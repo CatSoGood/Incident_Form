@@ -31,7 +31,7 @@ class IncidentReportForm(forms.ModelForm):
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
-        if not email.endswith('@example.com'):
+        if not email.endswith('@cybertron.co.th'):
             raise forms.ValidationError("Email must end with @example.com")
         return email
 

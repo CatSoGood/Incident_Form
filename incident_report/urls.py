@@ -16,10 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from formbuilder import views  # นำเข้า views จาก formbuilder
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.create_incident_report, name='create_incident_report'),  # กำหนดให้หน้าแรกชี้ไปที่ create_incident_report
-    path('incident-report/success/', views.incident_report_success, name='incident_report_success'),
+    path('', include('formbuilder.urls')),  # รวม URL จาก formbuilder
 ]
