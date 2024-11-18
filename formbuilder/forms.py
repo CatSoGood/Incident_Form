@@ -9,7 +9,7 @@ class IncidentReportForm(forms.ModelForm):
             'mobile', 'email', 'date_of_issue', 'severity', 'category', 
             'sub_category', 'device_action', 'source_address', 
             'destination_address', 'destination_port', 'application_protocol', 
-            'description'
+            'description','uploaded_image'
         ]
         widgets = {
             'date_of_issue': forms.DateInput(attrs={'type': 'date'}),
@@ -26,6 +26,7 @@ class IncidentReportForm(forms.ModelForm):
                 ('Malicious Code', 'Malicious Code'),
                 ('Unauthorized Access', 'Unauthorized Access'),
             ]),
+            'uploaded_image': forms.ClearableFileInput(attrs={'accept': 'image/*'}),
         }
 
 

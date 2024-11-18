@@ -24,10 +24,6 @@ def preview_incident_report(request):
     data = request.session.get('form_data')
     if not data:
         return redirect('create_incident_report')
-    
-    if 'date_of_issue' in data:
-        data['date_of_issue'] = datetime.fromisoformat(data['date_of_issue']).date()
-    
     return render(request, 'formbuilder/incident_report_preview.html', {'data': data})
 
 def download_pdf(request):

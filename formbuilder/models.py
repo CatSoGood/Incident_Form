@@ -18,6 +18,7 @@ class IncidentReport(models.Model):
     destination_port = models.CharField(max_length=10)
     application_protocol = models.CharField(max_length=50)
     description = models.TextField()
+    uploaded_image = models.ImageField(upload_to='incident_images/', null=True, blank=True)
 
     def __str__(self):
         return f"{self.first_name} {self.last_name} - {self.date_of_issue}"
